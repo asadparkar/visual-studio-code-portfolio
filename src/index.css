@@ -1,13 +1,206 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Consolas';
+  src: url('./assets/fonts/CONSOLA.TTF');
+  font-display: swap;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Ubuntu:wght@300;400;500;700&display=swap');
+/* SOME COMMON STYLES */
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+body{
+}
+
+/* END OF COMMON STYLES */
+
+/* INTRODUCTION PAGE CSS */
+
+/* INTRO MAN ANIMATIONS */
+#head{
+  transform-origin: center;
+  animation: moving_head 5s infinite ease-in;
+  animation-timing-function: linear;
+}
+
+#left{
+  animation: moving_left_hand 1.5s infinite;
+}
+#right{
+  animation: moving_right_hand 1.5s infinite
+}
+@keyframes moving_head {
+  0%{
+      transform:rotate(0deg);
+  }
+  33.333%{
+  transform:rotate(5deg);
+  }
+  66.666%{
+    transform: rotate(-5deg);
+  }
+  99.999%{
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes moving_left_hand {
+  0%{
+    transform: translateX(0px);
+  }
+  50%{
+    transform: translateX(5px);
+  }
+}
+
+@keyframes moving_right_hand {
+  0%{
+    transform: translateX(0px);
+  }
+  50%{
+    transform: translateX(-5px);
+  }
+}
+
+.mainmenu:hover{
+  background:rgba(255,255,255,0.2);
+}
+
+.cross-hover:hover{
+  background: red;
+}
+/* END OF INTRO MAN ANIMATIONS */
+
+.active{
+ background:#1e1e1e !important ;
+}
+
+.portfolio-items > div:hover{
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 5px;
+}
+
+/* CHANGING THE SCROLL BAR */
+::-webkit-scrollbar{
+  width: 0.8rem;
+}
+::-webkit-scrollbar-track{
+  background:#333333
+}
+::-webkit-scrollbar-thumb{
+  background-color: rgba(255,255,255,0.1);
+}
+.footer-item{
+  transition: all 0.5s;
+}
+
+.footer-item:hover{
+  border-radius: 2px;
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* SVG ANIMATIONS */
+
+#glowed{
+  transition: all 0.5s ease-in-out;
+  animation: glowoff 1.5s infinite;
+}
+@keyframes glowoff {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+}
+#circle{
+  transform-origin: center;
+  animation: circleAnimation 7s infinite;
+}
+@keyframes circleAnimation {
+  0%{
+    transform:rotate(0);
+  }
+  50%{
+  transform: skew(10deg);
+  }
+}
+#Computer,#server, #database, #Security{
+  transition: all 0.5s;
+}
+#Computer:hover, #Security:hover{
+ transform: translateY(-20px);
+}
+
+#server:hover, #database:hover{
+   transform: translateY(-18px);
+}
+
+.atropos{
+  position: relative;
+  transition: all 0.5s;
+}
+.atropos:hover{
+  box-shadow: none !important;
+}
+.atropos:hover .title{
+  opacity: 0;
+}
+.atropos:hover .paragraph{
+  opacity: 0;
+}
+.title{
+  position: absolute;
+  top:30%;
+  left:35%;
+}
+.paragraph{
+  position: absolute;
+  top:50%;
+  left:0%;
+  text-align: center;
+  width:80%;
+  left:10%;
+}
+.atropos:hover .button{
+  opacity: 1;
+}
+.atropos:hover .button1{
+  opacity: 1;
+}
+.button{
+  position: absolute;
+  top:50%;
+  left:30%;
+  text-align: center;
+  opacity: 0;
+}
+.button1{
+  position: absolute;
+  top:50%;
+  text-align: center;
+  left:50%;
+  opacity: 0;
+}
+.project_im{
+  transition: all 0.5s ease-out;
+}
+.project_img:hover{
+  transition: all 0.5s ease-out;
+  border-radius: 50% !important;
+}
+.project_img:not(:hover){
+  transition: all 0.5s ease-out;
+  border-radius: 0% !important;
+}
+.project_p:hover{
+  background-color: #3795BD;
+}
+.home_btn{
+  transition: all 0.3s ease;
+}
+.home_btn:hover{
+  box-shadow: 10px 5px 20px #000;
 }
