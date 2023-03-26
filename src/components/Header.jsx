@@ -4,12 +4,20 @@ import Cross from '../assets/Cross';
 import Expand from '../assets/expand';
 import Minimize from '../assets/Minimize';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeFile } from '../actions';
+import {Link} from 'react-router-dom'
 
 const Header = () => {
     const handleCrossClick = ()=>{
         window.close();
     }
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isFileToggeled = useSelector((state)=>state.changeFileState);
+  const dispatch = useDispatch();
+  const handleClick = ()=>{
+    dispatch(changeFile())
+  }
 
   return (
     <div>
@@ -24,11 +32,13 @@ const Header = () => {
             </div>
 
             <div style={{marginRight:'13px', padding:'0 5px 0 5px', borderRadius:'3px'}} className="mainmenu">
-                <p style={{opacity:0.7}}>File</p>
-                {/* <div style={{width:'10rem',height:'22rem',position:'absolute',background:'#252526',opacity:'100%', padding:'15px',border:'0.5px solid gray'}}>
-                    <p style={{fontSize:'13px'}}>Source Code</p>
+                <p style={{opacity:0.7}} onClick={handleClick}>File</p>
+                {isFileToggeled && <div style={{width:'13rem',height:'70vh',position:'absolute',background:'#252526',opacity:'100%', padding:'15px',border:'0.5px solid gray'}}>
+                    <Link target={'_blank'} to='https://github.com/asadparkar/visual-studio-code-portfolio'>
+                        <p className='file_item' style={{fontSize:'15px',padding:'5px'}}>Source Code</p>
+                    </Link>
 
-                </div> */}
+                </div>}
             </div>
             <div style={{marginRight:'13px', opacity:0.7, padding:'0 5px 0 5px', borderRadius:'3px'}} className="mainmenu">
                 <p>Edit</p>

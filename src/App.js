@@ -11,19 +11,23 @@ import Victory from "./pages/victory";
 import Contact from "./pages/contact"
 import About from "./pages/about"
 import Footer from './components/footer';
+import { changeFile } from './actions/index';
+import { useDispatch } from 'react-redux';
+
 
 const App = () => {
+  const dispatch = useDispatch();
   return (
     <div style={{height:'100vh', overflow:'hidden'}} className='container'>
       <Header />
-      <div style={{display:'flex'}}>
+      <div style={{display:'flex'}} onClick={()=>{dispatch(changeFile('body'))}}>
         <div style={{}}>
         <Sidebar />
         </div>
 
         <div style={{width:'100vw'}}>
             <Topbar />
-            <div style={{height:'100vh', overflowY:'scroll'}}>
+            <div style={{height:'100vh', overflowY:'scroll'}} onClick={()=>{dispatch(changeFile('body'))}}>
                 <Routes>
                   <Route path='/' element={<Home />} />
                   <Route path='/about' element={<About />} />
@@ -35,7 +39,7 @@ const App = () => {
             </div>
         </div>
       </div>
-      <div style={{position:'fixed', bottom:0, width:'100%'}}>
+      <div style={{position:'fixed', bottom:0, width:'100%'}} onClick={()=>{dispatch(changeFile('body'))}} >
         <Footer />
       </div>
     </div>

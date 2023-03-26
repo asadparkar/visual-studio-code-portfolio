@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Man from '../assets/man'
 import { useMediaQuery } from 'react-responsive';
+import { Link } from 'react-router-dom';
 
 
 const Home = () => {
@@ -25,8 +26,14 @@ const Home = () => {
        <p style={{color:'#c59557', marginTop:'20px'}}>&lt; / div &gt;</p>
 
        <div style={{marginTop:'20px'}}>
+          <Link to='/about'>
           <button className='home_btn' style={{backgroundColor:'#2D2D2D',color:'white',border:'none', padding:'15px',fontSize:'18px',cursor:'pointer',marginRight:'25px',fontFamily:'Ubuntu'}}>Explore</button>
+          </Link>
+
+
+          <Link to='/contact'>
           <button className='home_btn' style={{backgroundColor:'#2D2D2D',color:'white',border:'none', padding:'15px',fontSize:'18px',cursor:'pointer',fontFamily:'Ubuntu'}}>Contact</button>
+          </Link>
        </div>
 
       </div>

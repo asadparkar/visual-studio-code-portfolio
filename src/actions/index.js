@@ -11,3 +11,10 @@ export const changeSkill = (num)=>{
         payload:num
     }
 }
+
+export const changeFile = (section)=>{
+    return{
+        type:'FILE_TOGGLE',
+        payload:section
+    }
+}
