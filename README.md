@@ -4,7 +4,11 @@
 
 <h1>Installation</h1>
 
+1) Clone the repository locally
 ```
-first clone
-p
+git clone https://github.com/asadparkar/visual-studio-code-portfolio.git
+```
+2) CD into the project directory
+```
+cd visual-studio-code-portfolio
 ```
