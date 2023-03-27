@@ -11,6 +11,7 @@ import Victory from "./pages/victory";
 import Contact from "./pages/contact"
 import About from "./pages/about"
 import Footer from './components/footer';
+import Settings from './pages/settings'
 import { changeFile } from './actions/index';
 import { useDispatch } from 'react-redux';
 
@@ -35,6 +36,7 @@ const App = () => {
                   <Route path='/projects' element={<Projects />} />
                   <Route path='/victory' element={<Victory />} />
                   <Route path='/contact' element={<Contact />} />
+                  <Route path='/settings' element={<Settings />} />
                 </Routes>
             </div>
         </div>

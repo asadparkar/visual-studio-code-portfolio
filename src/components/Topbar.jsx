@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import {useLocation, useNavigate} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { changeState } from '../actions';
 import { useMediaQuery } from 'react-responsive';
 
 
 const Topbar = () => {
+  const location = useLocation();
 const selected = useSelector((state)=>state.changeTabState);
 const dispatch = useDispatch();
 const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
-
-
 const navigate = useNavigate();
+
+useEffect(()=>{
+  if (location.pathname === '/'){
+    dispatch(changeState(1))
+  }
+  if (location.pathname === '/about'){
+    dispatch(changeState(2))
+  }
+  if (location.pathname === '/skills'){
+    dispatch(changeState(3))
+  }
+  if (location.pathname === '/projects'){
+    dispatch(changeState(4))
+  }
+  if (location.pathname === '/victory'){
+    dispatch(changeState(5))
+  }
+  if (location.pathname === '/contact'){
+    dispatch(changeState(6))
+  }
+  if (location.pathname === "/settings"){
+    dispatch(changeState(0))
+  }
+})
 
 const handleClick = (index)=>{
   dispatch(changeState(index))
